@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/devongovett/node-wkhtmltopdf#readme"
-
-    >wkhtmltopdf (v0.3.4)</a>
+    <a href="https://github.com/devongovett/node-wkhtmltopdf#readme">wkhtmltopdf (v0.3.4)</a>
 </h1>
 <h4>A wrapper for the wkhtmltopdf HTML to PDF converter using WebKit</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.wkhtmltopdf">module wkhtmltopdf</a><ol>
 
@@ -100,7 +93,7 @@
     <li>description and source-code<pre class="apidocCodePre">function wkhtmltopdf(input, options, callback) {
   if (!options) {
     options = {};
-  } else if (typeof options == &#x27;function&#x27;) {
+  } else if (typeof options == 'function') {
     callback = options;
     options = {};
   }
@@ -111,7 +104,7 @@
   // make sure the special keys are last
   var extraKeys = [];
   var keys = Object.keys(options).filter(function(key) {
-    if (key === &#x27;toc&#x27; || key === &#x27;cover&#x27; || key === &#x27;page&#x27;) {
+    if (key === 'toc' || key === 'cover' || key === 'page') {
       extraKeys.push(key);
       return false;
     }
@@ -120,9 +113,9 @@
   }).concat(extraKeys);
 
   // make sure toc specific args appear after toc arg
-  if (keys.indexOf(&#x27;toc&#x27;) &#x3e;= 0) {
-    var tocArgs = [&#x27;disableDottedLines&#x27;, &#x27;tocHeaderText&#x27;, &#x27;tocLevelIndentation&#x27;, &#x27;disableTocLinks&#x27;, &#x27;tocTextSizeShrink&#x27;, &#x27;xslStyleSheet
-&#x27;];
+  if (keys.indexOf('toc') &gt;= 0) {
+    var tocArgs = ['disableDottedLines', 'tocHeaderText', 'tocLevelIndentation', 'disableTocLinks', 'tocTextSizeShrink', 'xslStyleSheet
+'];
     var myTocArgs = [];
     keys = keys.filter(function(key){
       if (tocArgs.find(function(tkey){ return tkey === key })) {
@@ -131,23 +124,23 @@
       }
       return true;
     });
-    var spliceArgs = [keys.indexOf(&#x27;toc&#x27;)+1, 0].concat(myTocArgs);
+    var spliceArgs = [keys.indexOf('toc')+1, 0].concat(myTocArgs);
     Array.prototype.splice.apply(keys, spliceArgs);
   }
 
   var args = [wkhtmltopdf.command];
   if (!options.debug) {
-    args.push(&#x27;--quiet&#x27;);
+    args.push('--quiet');
   }
 
   keys.forEach(function(key) {
     var val = options[key];
-    if (key === &#x27;ignore&#x27; || key === &#x27;debug&#x27; || key === &#x27;debugStdOut&#x27;) { // skip adding the ignore/debug keys
+    if (key === 'ignore' || key === 'debug' || key === 'debugStdOut') { // skip adding the ignore/debug keys
       return false;
     }
 
-    if (key !== &#x27;toc&#x27; &#x26;&#x26; key !== &#x27;cover&#x27; &#x26;&#x26; key !== &#x27;page&#x27;) {
-      key = key.length === 1 ? &#x27;-&#x27; + key : &#x27;--&#x27; + slang.dasherize(key);
+    if (key !== 'toc' &amp;&amp; key !== 'cover' &amp;&amp; key !== 'page') {
+      key = key.length === 1 ? '-' + key : '--' + slang.dasherize(key);
     }
 
     if (Array.isArray(val)) { // add repeatable args
@@ -166,38 +159,38 @@
         args.push(key);
       }
 
-      if (typeof val !== &#x27;boolean&#x27;) {
+      if (typeof val !== 'boolean') {
         args.push(quote(val));
       }
     }
   });
 
   var isUrl = /^(https?|file):\/\//.test(input);
-  args.push(isUrl ? quote(input) : &#x27;-&#x27;);    // stdin if HTML given directly
-  args.push(output ? quote(output) : &#x27;-&#x27;);  // stdout if no output file
+  args.push(isUrl ? quote(input) : '-');    // stdin if HTML given directly
+  args.push(output ? quote(output) : '-');  // stdout if no output file
 
   // show the command that is being run if debug opion is passed
-  if (options.debug &#x26;&#x26; !(options instanceof Function)) {
-    console.log(&#x27;[node-wkhtmltopdf] [debug] [command] &#x27; + args.join(&#x27; &#x27;));
+  if (options.debug &amp;&amp; !(options instanceof Function)) {
+    console.log('[node-wkhtmltopdf] [debug] [command] ' + args.join(' '));
   }
 
-  if (process.platform === &#x27;win32&#x27;) {
+  if (process.platform === 'win32') {
     var child = spawn(args[0], args.slice(1));
-  } else if (process.platform === &#x27;darwin&#x27;) {
-    var child = spawn(&#x27;/bin/sh&#x27;, [&#x27;-c&#x27;, args.join(&#x27; &#x27;) + &#x27; | cat ; exit ${PIPESTATUS[0]}&#x27;]);
+  } else if (process.platform === 'darwin') {
+    var child = spawn('/bin/sh', ['-c', args.join(' ') + ' | cat ; exit ${PIPESTATUS[0]}']);
   } else {
     // this nasty business prevents piping problems on linux
     // The return code should be that of wkhtmltopdf and not of cat
     // http://stackoverflow.com/a/18295541/1705056
-    var child = spawn(wkhtmltopdf.shell, [&#x27;-c&#x27;, args.join(&#x27; &#x27;) + &#x27; | cat ; exit ${PIPESTATUS[0]}&#x27;]);
+    var child = spawn(wkhtmltopdf.shell, ['-c', args.join(' ') + ' | cat ; exit ${PIPESTATUS[0]}']);
   }
 
   var stream = child.stdout;
 
   // call the callback with null error when the process exits successfully
-  child.on(&#x27;exit&#x27;, function(code) {
+  child.on('exit', function(code) {
     if (code !== 0) {
-      stderrMessages.push(&#x27;wkhtmltopdf exited with code &#x27; + code);
+      stderrMessages.push('wkhtmltopdf exited with code ' + code);
       handleError(stderrMessages);
     } else if (callback) {
       callback(null, stream); // stream is child.stdout
@@ -210,14 +203,14 @@
     var errObj = null;
     if (Array.isArray(err)) {
       // check ignore warnings array before killing child
-      if (options.ignore &#x26;&#x26; options.ignore instanceof Array) {
+      if (options.ignore &amp;&amp; options.ignore instanceof Array) {
         var ignoreError = false;
         options.ignore.forEach(function(opt) {
           err.forEach(function(error) {
-            if (typeof opt === &#x27;string&#x27; &#x26;&#x26; opt === error) {
+            if (typeof opt === 'string' &amp;&amp; opt === error) {
               ignoreError = true;
             }
-            if (opt instanceof RegExp &#x26;&#x26; error.match(opt)) {
+            if (opt instanceof RegExp &amp;&amp; error.match(opt)) {
               ignoreError = true;
             }
           });
@@ -226,7 +219,7 @@
           return true;
         }
       }
-      errObj = new Error(err.join(&#x27;\n&#x27;));
+      errObj = new Error(err.join('\n'));
     } else if ( ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -244,3 +237,4 @@
     ]
 </div>
 </div>
+</body></html>
