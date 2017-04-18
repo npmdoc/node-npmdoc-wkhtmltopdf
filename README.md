@@ -1,9 +1,14 @@
-# api documentation for  [wkhtmltopdf (v0.3.4)](https://github.com/devongovett/node-wkhtmltopdf#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-wkhtmltopdf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wkhtmltopdf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf)
+# npmdoc-wkhtmltopdf
+
+#### api documentation for  [wkhtmltopdf (v0.3.4)](https://github.com/devongovett/node-wkhtmltopdf#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-wkhtmltopdf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wkhtmltopdf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf)
+
 #### A wrapper for the wkhtmltopdf HTML to PDF converter using WebKit
 
-[![NPM](https://nodei.co/npm/wkhtmltopdf.png?downloads=true)](https://www.npmjs.com/package/wkhtmltopdf)
+[![NPM](https://nodei.co/npm/wkhtmltopdf.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/wkhtmltopdf)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-wkhtmltopdf_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-wkhtmltopdf/build/screenCapture.npmPackageListing.svg)
 
@@ -18,7 +23,6 @@
 {
     "author": {
         "name": "Devon Govett",
-        "email": "devongovett@gmail.com",
         "url": "http://badassjs.com/"
     },
     "bugs": {
@@ -50,17 +54,14 @@
     "homepage": "https://github.com/devongovett/node-wkhtmltopdf#readme",
     "maintainers": [
         {
-            "name": "devongovett",
-            "email": "devongovett@gmail.com"
+            "name": "devongovett"
         },
         {
-            "name": "zxlin",
-            "email": "zhixiang94@gmail.com"
+            "name": "zxlin"
         }
     ],
     "name": "wkhtmltopdf",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/devongovett/node-wkhtmltopdf.git"
@@ -71,18 +72,6 @@
     "version": "0.3.4"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module wkhtmltopdf](#apidoc.module.wkhtmltopdf)
-1.  string <span class="apidocSignatureSpan">wkhtmltopdf.</span>command
-1.  string <span class="apidocSignatureSpan">wkhtmltopdf.</span>shell
-
-
-
-# <a name="apidoc.module.wkhtmltopdf"></a>[module wkhtmltopdf](#apidoc.module.wkhtmltopdf)
 
 
 
