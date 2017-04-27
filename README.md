@@ -1,6 +1,6 @@
 # npmdoc-wkhtmltopdf
 
-#### api documentation for  [wkhtmltopdf (v0.3.4)](https://github.com/devongovett/node-wkhtmltopdf#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-wkhtmltopdf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wkhtmltopdf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf)
+#### basic api documentation for  [wkhtmltopdf (v0.3.4)](https://github.com/devongovett/node-wkhtmltopdf#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-wkhtmltopdf.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-wkhtmltopdf) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf.svg)](https://travis-ci.org/npmdoc/node-npmdoc-wkhtmltopdf)
 
 #### A wrapper for the wkhtmltopdf HTML to PDF converter using WebKit
 
@@ -69,7 +69,8 @@
     "scripts": {
         "test": "jasmine"
     },
-    "version": "0.3.4"
+    "version": "0.3.4",
+    "bin": {}
 }
 ```
 
